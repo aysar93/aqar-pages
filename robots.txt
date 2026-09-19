@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aysar93.github.io/aqar-pages/sitemap.xml

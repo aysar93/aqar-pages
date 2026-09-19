@@ -1,134 +1,845 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="عقارات الأنبار - منصة عقارية لعرض واستكشاف العقارات في محافظة الأنبار.">
-  <title>عقارات الانبار</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: Tahoma, Arial, sans-serif;
-      background: #0F172A;
-      color: #F8FAFC;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    header {
-      padding: 22px 6%;
-      border-bottom: 1px solid rgba(212,175,55,.25);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .brand {
-      color: #D4AF37;
-      font-size: 24px;
-      font-weight: 800;
-    }
-    nav a {
-      color: #CBD5E1;
-      text-decoration: none;
-      margin-right: 18px;
-      font-size: 14px;
-    }
-    nav a:hover { color: #D4AF37; }
-    main {
-      flex: 1;
-      display: grid;
-      place-items: center;
-      padding: 60px 20px;
-    }
-    .hero {
-      width: min(900px, 100%);
-      text-align: center;
-      padding: 55px 28px;
-      background: #1E293B;
-      border: 1px solid rgba(212,175,55,.28);
-      border-radius: 28px;
-      box-shadow: 0 25px 70px rgba(0,0,0,.28);
-    }
-    .logo {
-      width: 92px;
-      height: 92px;
-      margin: 0 auto 24px;
-      border: 2px solid #D4AF37;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      color: #D4AF37;
-      font-size: 38px;
-      font-weight: 900;
-    }
-    h1 {
-      color: #D4AF37;
-      font-size: clamp(32px, 6vw, 54px);
-      margin-bottom: 18px;
-    }
-    p {
-      color: #CBD5E1;
-      line-height: 2;
-      font-size: 17px;
-      max-width: 680px;
-      margin: auto;
-    }
-    .actions {
-      margin-top: 32px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .btn {
-      display: inline-block;
-      padding: 13px 22px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 700;
-    }
-    .primary { background: #D4AF37; color: #0F172A; }
-    .secondary {
-      color: #D4AF37;
-      border: 1px solid #D4AF37;
-    }
-    footer {
-      text-align: center;
-      color: #94A3B8;
-      padding: 24px;
-      font-size: 13px;
-      border-top: 1px solid rgba(255,255,255,.06);
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="brand">عقارات الأنبار</div>
-    <nav>
-      <a href="privacy.html">سياسة الخصوصية</a>
-      <a href="terms.html">شروط الاستخدام</a>
-    </nav>
-  </header>
+<!doctype html>
+<html lang="ar" dir="rtl" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="google-site-verification" content="0vdWN5CkxxTiAki3EKSXziNs6bD_Jv2PNmTy-9ESFpU" />
+    <meta name="application-name" content="عقارات الانبار" />
+    <meta name="author" content="عقارات الانبار" />
+    <meta
+      name="description"
+      content="الموقع الرسمي لتطبيق عقارات الانبار. تصفح العقارات وابحث حسب المدينة والحي وانشر عقارك من هاتفك."
+    />
+    <meta property="og:title" content="عقارات الانبار" />
+    <meta
+      property="og:description"
+      content="بيوت، أراضٍ، شقق ومحلات في مكان واحد. حمّل تطبيق عقارات الانبار من Google Play."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aysar93.github.io/aqar-pages/" />
+    <meta property="og:site_name" content="عقارات الانبار" />
+    <meta property="og:locale" content="ar_IQ" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="عقارات الانبار" />
+    <meta name="twitter:description" content="تصفّح العقارات وانشر عقارك في محافظة الأنبار من تطبيق واحد." />
+    <title>عقارات الانبار | تطبيق العقار في الأنبار</title>
+    <link rel="canonical" href="https://aysar93.github.io/aqar-pages/" />
+    <link rel="manifest" href="site.webmanifest" />
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="icon" href="assets/app-icon-192.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/app-icon-192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://aysar93.github.io/aqar-pages/#website",
+            "url": "https://aysar93.github.io/aqar-pages/",
+            "name": "عقارات الانبار",
+            "inLanguage": "ar-IQ",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://aysar93.github.io/aqar-pages/browse.html?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          },
+          {
+            "@type": "MobileApplication",
+            "@id": "https://aysar93.github.io/aqar-pages/#app",
+            "name": "عقارات الانبار",
+            "description": "تطبيق للبحث عن العقارات ونشرها والتواصل مع المكاتب العقارية في محافظة الأنبار.",
+            "applicationCategory": "LifestyleApplication",
+            "operatingSystem": "Android",
+            "downloadUrl": "https://play.google.com/store/apps/details?id=com.andalus.aqar",
+            "image": "https://aysar93.github.io/aqar-pages/assets/app-icon-512.png",
+            "publisher": { "@id": "https://aysar93.github.io/aqar-pages/#organization" }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://aysar93.github.io/aqar-pages/#organization",
+            "name": "عقارات الانبار",
+            "url": "https://aysar93.github.io/aqar-pages/",
+            "logo": "https://aysar93.github.io/aqar-pages/assets/app-icon-512.png",
+            "email": "aysar.aliraqe@gmail.com",
+            "telephone": "+9647838081677",
+            "sameAs": [
+              "https://play.google.com/store/apps/details?id=com.andalus.aqar",
+              "https://www.facebook.com/aqar.anbar"
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "هل تحميل تطبيق عقارات الانبار مجاني؟",
+                "acceptedAnswer": {"@type": "Answer", "text": "نعم، يمكن تحميل التطبيق لأجهزة Android من Google Play."}
+              },
+              {
+                "@type": "Question",
+                "name": "كيف أنشر عقاري في الأنبار؟",
+                "acceptedAnswer": {"@type": "Answer", "text": "أنشئ حسابًا في التطبيق ثم أضف نوع العقار وموقعه وسعره وصوره ووسيلة التواصل."}
+              },
+              {
+                "@type": "Question",
+                "name": "كيف أتواصل مع صاحب العقار؟",
+                "acceptedAnswer": {"@type": "Answer", "text": "تظهر وسائل الاتصال المتاحة في صفحة تفاصيل العقار داخل التطبيق."}
+              }
+            ]
+          },
+          {
+            "@type": "VideoObject",
+            "name": "تطبيق عقارات الانبار",
+            "description": "فيديو تعريفي قصير عن تطبيق عقارات الانبار للبحث عن العقارات ونشرها.",
+            "thumbnailUrl": "https://aysar93.github.io/aqar-pages/assets/videos/discover-app-poster.jpg",
+            "uploadDate": "2026-09-09",
+            "duration": "PT10S",
+            "contentUrl": "https://aysar93.github.io/aqar-pages/assets/videos/discover-app.mp4",
+            "inLanguage": "ar-IQ"
+          },
+          {
+            "@type": "VideoObject",
+            "name": "لأصحاب المكاتب العقارية في الأنبار",
+            "description": "دعوة لأصحاب المكاتب العقارية لعرض عقاراتهم عبر تطبيق عقارات الانبار.",
+            "thumbnailUrl": "https://aysar93.github.io/aqar-pages/assets/videos/for-offices-poster.jpg",
+            "uploadDate": "2026-09-09",
+            "duration": "PT10S",
+            "contentUrl": "https://aysar93.github.io/aqar-pages/assets/videos/for-offices.mp4",
+            "inLanguage": "ar-IQ"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">انتقل إلى المحتوى</a>
 
-  <main>
-    <section class="hero">
-      <div class="logo">ع</div>
-      <h1>عقارات الانبار</h1>
-      <p>
-        منصة عقارية تساعد المستخدمين على استكشاف وعرض العقارات في محافظة الأنبار،
-        وتسهّل الوصول إلى المنازل والأراضي والشقق والعقارات المعروضة للبيع أو الإيجار.
-      </p>
-      <div class="actions">
-        <a class="btn primary" href="privacy.html">سياسة الخصوصية</a>
-        <a class="btn secondary" href="terms.html">شروط الاستخدام</a>
+    <header class="site-header" id="top">
+      <div class="container header-inner">
+        <a class="brand" href="#top" aria-label="عقارات الانبار - الرئيسية">
+          <img class="brand-logo" src="assets/app-icon.webp" alt="" width="48" height="48" />
+          <span class="brand-copy">
+            <strong>عقارات الانبار</strong>
+            <small>دليلك العقاري</small>
+          </span>
+        </a>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="فتح القائمة"
+          aria-expanded="false"
+          aria-controls="main-nav"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="main-nav" id="main-nav" aria-label="القائمة الرئيسية">
+          <a href="#browse">تصفّح العقارات</a>
+          <a href="#videos">الفيديوهات</a>
+          <a href="#why">مزايا التطبيق</a>
+          <a href="#how">طريقة الاستخدام</a>
+          <a href="#offices">للمكاتب</a>
+          <a href="#faq">الأسئلة الشائعة</a>
+        </nav>
+
+        <a
+          class="button button-small header-cta"
+          href="https://play.google.com/store/apps/details?id=com.andalus.aqar"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          حمّل التطبيق
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 4.6v14.8L19.6 12 7 4.6Z" fill="currentColor" />
+          </svg>
+        </a>
       </div>
-    </section>
-  </main>
+    </header>
 
-  <footer>
-    © 2026 عقارات الانبار — جميع الحقوق محفوظة
-  </footer>
-</body>
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <img
+          class="hero-image"
+          src="assets/anbar-home-hero.webp"
+          alt="منزل عراقي حديث بإضاءة مسائية دافئة"
+          width="1586"
+          height="992"
+          fetchpriority="high"
+        />
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="hero-lines" aria-hidden="true"></div>
+
+        <div class="container hero-inner">
+          <div class="hero-layout">
+            <div class="hero-content">
+              <div class="eyebrow">
+                <span class="eyebrow-dot" aria-hidden="true"></span>
+                التطبيق العقاري المخصص لمحافظة الأنبار
+              </div>
+              <h1 id="hero-title">عقارك بالأنبار<br /><span>أقرب مما تتصور</span></h1>
+              <p>
+                ابحث عن بيت أو أرض أو شقة، شاهد التفاصيل وتواصل مع الناشر مباشرة. كل ما تحتاجه للعقار في مكان واحد.
+              </p>
+              <form class="hero-search-panel" id="property-search" aria-label="البحث عن عقار في الأنبار">
+                <div class="search-panel-heading">
+                  <span>ابدأ بحثك</span>
+                  <small>اختر المدينة ونوع العقار</small>
+                </div>
+                <label>
+                  <span>المدينة</span>
+                  <select id="search-city" name="city" aria-label="اختر المدينة">
+                    <option value="ramadi">الرمادي</option>
+                    <option value="fallujah">الفلوجة</option>
+                    <option value="anbar">جميع مدن الأنبار</option>
+                  </select>
+                </label>
+                <label>
+                  <span>نوع العقار</span>
+                  <select id="search-type" name="type" aria-label="اختر نوع العقار">
+                    <option value="all">كل العقارات</option>
+                    <option value="houses">بيوت للبيع</option>
+                    <option value="land">أراضٍ للبيع</option>
+                    <option value="apartments">شقق للإيجار</option>
+                  </select>
+                </label>
+                <button type="submit" aria-label="عرض خيارات العقارات">ابحث الآن</button>
+              </form>
+              <div class="hero-actions">
+                <a
+                  class="button button-primary"
+                  href="https://play.google.com/store/apps/details?id=com.andalus.aqar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span class="play-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="m5.1 3.3 10.2 8.1c.4.3.4.9 0 1.2L5.1 20.7c-.7.5-1.6 0-1.6-.8V4.1c0-.8.9-1.3 1.6-.8Z" fill="currentColor" />
+                      <path d="m15.1 8.9 3.5 2.2c.7.4.7 1.4 0 1.8l-3.5 2.2-2.1-3.1 2.1-3.1Z" fill="currentColor" opacity=".72" />
+                    </svg>
+                  </span>
+                  <span>
+                    <small>حمّله الآن من</small>
+                    <strong>Google Play</strong>
+                  </span>
+                </a>
+                <a class="button button-ghost" href="#phone-demo">جرّب التطبيق</a>
+              </div>
+
+              <div class="hero-points" aria-label="أهم إمكانات التطبيق">
+                <span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6" /></svg>
+                  بحث حسب المدينة والحي
+                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6" /></svg>
+                  نشر وتواصل مباشر
+                </span>
+              </div>
+            </div>
+
+            <div class="hero-phone-stage" id="phone-demo">
+              <div class="phone-glow" aria-hidden="true"></div>
+              <div class="phone-note phone-note-top" aria-hidden="true"><b>+10</b><span>عقارات جديدة</span></div>
+              <div class="phone-note phone-note-side" aria-hidden="true"><b>الأنبار</b><span>كل المدن والمناطق</span></div>
+
+              <div class="app-phone" aria-label="نموذج تفاعلي لتطبيق عقارات الانبار">
+                <div class="phone-frame">
+                  <div class="phone-speaker" aria-hidden="true"></div>
+                  <div class="phone-screen">
+                    <div class="phone-status" aria-hidden="true"><span>9:41</span><span>● ◔ ▰</span></div>
+
+                    <section class="phone-view is-active" data-phone-view="home">
+                      <div class="phone-appbar">
+                        <button class="phone-icon-button" type="button" aria-label="القائمة">☰</button>
+                        <div class="phone-brand">
+                          <img src="assets/app-icon.webp" alt="" width="38" height="38" />
+                          <div><strong>عقارات الانبار</strong><small>دليلك العقاري</small></div>
+                        </div>
+                        <button class="phone-icon-button" type="button" aria-label="الإشعارات">♢</button>
+                      </div>
+
+                      <button class="phone-search" type="button" data-phone-target="explore">
+                        <span>ابحث عن مدينة، حي أو عقار...</span><b>⌕</b>
+                      </button>
+
+                      <div class="phone-category-row" aria-label="تصنيفات العقارات">
+                        <button class="is-active" type="button">الكل</button>
+                        <button type="button">بيت</button>
+                        <button type="button">أرض</button>
+                        <button type="button">شقة</button>
+                      </div>
+
+                      <div class="phone-section-title"><div><strong>العقارات المميزة</strong><small>اختيارات موثوقة ومحدثة</small></div><span>عرض الكل</span></div>
+
+                      <button class="phone-property-card" type="button" data-open-property>
+                        <span class="phone-property-image"><img src="assets/anbar-home-hero.webp" alt="منزل حديث" /></span>
+                        <span class="phone-property-body">
+                          <span class="phone-property-top"><b>بيت حديث للبيع</b><i>مميز</i></span>
+                          <small>الرمادي • حي الأندلس</small>
+                          <strong>180,000,000 د.ع</strong>
+                          <span class="phone-property-meta">300 م²&nbsp;&nbsp; • &nbsp;&nbsp;4 غرف&nbsp;&nbsp; • &nbsp;&nbsp;3 حمّامات</span>
+                        </span>
+                      </button>
+
+                      <div class="phone-mini-list">
+                        <button type="button" data-open-property><span class="mini-thumb land-thumb"></span><span><b>أرض سكنية</b><small>الرمادي • حي التأميم</small><strong>90,000,000 د.ع</strong></span></button>
+                        <button type="button" data-open-property><span class="mini-thumb flat-thumb"></span><span><b>شقة للإيجار</b><small>الفلوجة • المركز</small><strong>500,000 د.ع</strong></span></button>
+                      </div>
+                    </section>
+
+                    <section class="phone-view" data-phone-view="explore" hidden>
+                      <div class="phone-page-heading"><button type="button" data-phone-target="home" aria-label="العودة">→</button><div><strong>البحث عن عقار</strong><small>اختَر المواصفات المناسبة</small></div></div>
+                      <label class="phone-filter-label">الموقع</label>
+                      <div class="phone-filter-box"><span>الرمادي</span><b>⌄</b></div>
+                      <label class="phone-filter-label">نوع العقار</label>
+                      <div class="phone-filter-grid"><button class="is-active" type="button">بيت</button><button type="button">أرض</button><button type="button">شقة</button><button type="button">محل</button></div>
+                      <label class="phone-filter-label">نوع الإعلان</label>
+                      <div class="phone-filter-grid two"><button class="is-active" type="button">للبيع</button><button type="button">للإيجار</button></div>
+                      <button class="phone-main-action" type="button" data-phone-target="home">عرض العقارات</button>
+                    </section>
+
+                    <section class="phone-view" data-phone-view="offices" hidden>
+                      <div class="phone-page-heading"><button type="button" data-phone-target="home" aria-label="العودة">→</button><div><strong>المكاتب العقارية</strong><small>مكاتب تخدم مناطق الأنبار</small></div></div>
+                      <div class="phone-office-card"><img src="assets/app-icon.webp" alt="" /><span><b>مكتب الأندلس للعقارات</b><small>الرمادي • حي الجمهوري</small><i>عرض العقارات</i></span></div>
+                      <div class="phone-office-card muted"><span class="office-letter">ع</span><span><b>مكتب عقاري</b><small>الفلوجة • المركز</small><i>عرض العقارات</i></span></div>
+                      <div class="phone-office-info"><b>هل تملك مكتبًا عقاريًا؟</b><span>انضم إلى التطبيق واعرض عقارات مكتبك بطريقة احترافية.</span></div>
+                    </section>
+
+                    <section class="phone-view phone-detail-view" data-phone-view="detail" hidden>
+                      <div class="phone-detail-image"><img src="assets/anbar-home-hero.webp" alt="منزل حديث" /><button type="button" data-phone-target="home" aria-label="العودة">→</button><span>مميز</span></div>
+                      <div class="phone-detail-body"><small>بيت • للبيع</small><h3>بيت حديث في الرمادي</h3><p>الرمادي • حي الأندلس</p><strong>180,000,000 د.ع</strong><div class="phone-detail-stats"><span><b>300</b>م²</span><span><b>4</b>غرف</span><span><b>3</b>حمّامات</span></div><h4>وصف العقار</h4><p>بناء حديث، موقع هادئ وقريب من الخدمات الأساسية.</p><button class="phone-main-action" type="button">تواصل مع الناشر</button></div>
+                    </section>
+
+                    <nav class="phone-bottom-nav" aria-label="التنقل داخل النموذج">
+                      <button class="is-active" type="button" data-phone-target="home"><b>⌂</b><span>الرئيسية</span></button>
+                      <button type="button" data-phone-target="explore"><b>⌕</b><span>البحث</span></button>
+                      <button type="button" data-phone-target="offices"><b>▦</b><span>المكاتب</span></button>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+              <p class="phone-demo-caption"><span></span>جرّب التنقل داخل التطبيق</p>
+            </div>
+          </div>
+        </div>
+
+        <a class="scroll-cue" href="#why" aria-label="انتقل إلى مزايا التطبيق">
+          <span>اكتشف</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5" /></svg>
+        </a>
+      </section>
+
+      <section class="section browse-section" id="browse" aria-labelledby="browse-title">
+        <div class="container">
+          <div class="section-heading reveal">
+            <div>
+              <span class="section-kicker">دليل عقارات الأنبار</span>
+              <h2 id="browse-title">ابحث حسب المدينة أو نوع العقار</h2>
+            </div>
+            <p>صفحات مخصصة تساعدك على الوصول إلى القسم المطلوب، ثم تفتح التطبيق لمشاهدة الإعلانات المتاحة والمحدثة.</p>
+          </div>
+          <div class="browse-carousel" data-card-carousel aria-roledescription="عارض أقسام">
+            <div class="browse-grid" aria-live="polite">
+            <a class="browse-card browse-card-featured" href="ramadi/" data-carousel-card>
+              <span class="card-sequence" aria-hidden="true">01</span>
+              <span class="browse-icon" aria-hidden="true">ر</span>
+              <div><small><i></i> الأكثر بحثًا</small><h3>عقارات الرمادي</h3><p>بيوت وأراضٍ وشقق ومكاتب عقارية في مركز الرمادي وأحيائها.</p><span class="card-chips"><em>بحث حسب الحي</em><em>كل أنواع العقارات</em></span></div>
+              <b class="browse-card-action">استعرض القسم <span aria-hidden="true">←</span></b>
+            </a>
+            <a class="browse-card" href="fallujah/" data-carousel-card>
+              <span class="card-sequence" aria-hidden="true">02</span>
+              <span class="browse-icon" aria-hidden="true">ف</span>
+              <div><small><i></i> دليل المدينة</small><h3>عقارات الفلوجة</h3><p>ابحث عن خيارات البيع والإيجار في الفلوجة والمناطق القريبة.</p><span class="card-chips"><em>بيع وإيجار</em><em>تواصل مباشر</em></span></div>
+              <b class="browse-card-action">استعرض القسم <span aria-hidden="true">←</span></b>
+            </a>
+            <a class="browse-card" href="properties/houses-for-sale/" data-carousel-card>
+              <span class="card-sequence" aria-hidden="true">03</span>
+              <span class="browse-icon" aria-hidden="true">⌂</span>
+              <div><small><i></i> للبيع</small><h3>بيوت للبيع</h3><p>انتقل إلى قسم البيوت وقارن المواصفات والأسعار وموقع العقار.</p><span class="card-chips"><em>صور ومواصفات</em><em>موقع واضح</em></span></div>
+              <b class="browse-card-action">استعرض القسم <span aria-hidden="true">←</span></b>
+            </a>
+            <a class="browse-card" href="properties/land-for-sale/" data-carousel-card>
+              <span class="card-sequence" aria-hidden="true">04</span>
+              <span class="browse-icon" aria-hidden="true">◇</span>
+              <div><small><i></i> سكني وتجاري</small><h3>أراضٍ للبيع</h3><p>اعثر على قطع الأراضي المنشورة في مدن وأحياء محافظة الأنبار.</p><span class="card-chips"><em>مساحات متعددة</em><em>حسب المدينة</em></span></div>
+              <b class="browse-card-action">استعرض القسم <span aria-hidden="true">←</span></b>
+            </a>
+            <a class="browse-card" href="properties/apartments-for-rent/" data-carousel-card>
+              <span class="card-sequence" aria-hidden="true">05</span>
+              <span class="browse-icon" aria-hidden="true">▦</span>
+              <div><small><i></i> للإيجار</small><h3>شقق للإيجار</h3><p>تصفّح الشقق السكنية المعروضة للإيجار وتواصل مع الناشر.</p><span class="card-chips"><em>خيارات سكن</em><em>تفاصيل الإيجار</em></span></div>
+              <b class="browse-card-action">استعرض القسم <span aria-hidden="true">←</span></b>
+            </a>
+            <a class="browse-card" href="offices/" data-carousel-card>
+              <span class="card-sequence" aria-hidden="true">06</span>
+              <span class="browse-icon" aria-hidden="true">م</span>
+              <div><small><i></i> تواصل موثوق</small><h3>المكاتب العقارية</h3><p>اكتشف صفحات المكاتب وعقاراتها ووسائل التواصل المتاحة.</p><span class="card-chips"><em>صفحات مخصصة</em><em>عقارات مرتبة</em></span></div>
+              <b class="browse-card-action">استعرض القسم <span aria-hidden="true">←</span></b>
+            </a>
+            </div>
+            <div class="carousel-controls" aria-label="التنقل بين الأقسام">
+              <button type="button" data-carousel-prev aria-label="القسم السابق">→</button>
+              <div class="carousel-dots" role="tablist" aria-label="اختيار قسم"></div>
+              <button type="button" data-carousel-next aria-label="القسم التالي">←</button>
+            </div>
+            <p class="carousel-hint"><span aria-hidden="true">↔</span> اضغط البطاقة أو اسحب للتقليب، واضغط مرة ثانية لفتح القسم</p>
+          </div>
+          <p class="data-note reveal"><span aria-hidden="true">i</span> تظهر الإعلانات والأسعار المحدثة داخل التطبيق؛ الموقع لا يعرض أرقامًا أو عقارات تجريبية على أنها بيانات حقيقية.</p>
+        </div>
+      </section>
+
+      <section class="section video-showcase" id="videos" aria-labelledby="videos-title">
+        <div class="container">
+          <div class="video-heading reveal">
+            <div>
+              <span class="section-kicker">شاهد عقارات الانبار</span>
+              <h2 id="videos-title">الفكرة بصورة أقرب</h2>
+            </div>
+            <p>فيديوهات قصيرة تعرّفك على التطبيق وكيف يساعد الباحثين وأصحاب العقارات والمكاتب داخل محافظة الأنبار.</p>
+          </div>
+
+          <div class="video-gallery">
+            <article class="video-card reveal">
+              <div class="video-frame">
+                <video
+                  preload="metadata"
+                  poster="assets/videos/discover-app-poster.jpg"
+                  playsinline
+                  controls
+                  controlslist="nodownload noplaybackrate"
+                  aria-label="فيديو تعريفي عن تطبيق عقارات الانبار"
+                >
+                  <source src="assets/videos/discover-app.mp4" type="video/mp4" />
+                  متصفحك لا يدعم تشغيل الفيديو.
+                </video>
+                <button class="video-play" type="button" data-video-play aria-label="تشغيل فيديو تطبيق عقارات الانبار">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10-6.5L8 5.5Z" /></svg>
+                </button>
+                <span class="video-duration">00:10</span>
+                <span class="video-brand"><img src="assets/app-icon.webp" alt="" /> عقارات الانبار</span>
+              </div>
+              <div class="video-card-copy">
+                <span>للباحثين وأصحاب العقارات</span>
+                <h3>عقارك أقرب مما تتصور</h3>
+                <p>تعرّف على تجربة البحث والنشر والتواصل من مكان واحد.</p>
+              </div>
+            </article>
+
+            <article class="video-card video-card-offset reveal">
+              <div class="video-frame">
+                <video
+                  preload="metadata"
+                  poster="assets/videos/for-offices-poster.jpg"
+                  playsinline
+                  controls
+                  controlslist="nodownload noplaybackrate"
+                  aria-label="فيديو لأصحاب المكاتب العقارية في الأنبار"
+                >
+                  <source src="assets/videos/for-offices.mp4" type="video/mp4" />
+                  متصفحك لا يدعم تشغيل الفيديو.
+                </video>
+                <button class="video-play" type="button" data-video-play aria-label="تشغيل فيديو المكاتب العقارية">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10-6.5L8 5.5Z" /></svg>
+                </button>
+                <span class="video-duration">00:10</span>
+                <span class="video-brand"><img src="assets/app-icon.webp" alt="" /> عقارات الانبار</span>
+              </div>
+              <div class="video-card-copy">
+                <span>لأصحاب المكاتب والوسطاء</span>
+                <h3>خلّي مكتبك أقرب للباحثين</h3>
+                <p>اعرض عقارات مكتبك بصورة مرتبة واستقبل التواصل مباشرة.</p>
+              </div>
+            </article>
+
+            <aside class="video-side-note reveal">
+              <span class="section-kicker">10 ثوانٍ فقط</span>
+              <h3>شاهد الفكرة<br />وحمّل التطبيق</h3>
+              <p>اضغط على أي فيديو لتشغيله. عند تشغيل فيديو جديد يتوقف الفيديو الآخر تلقائيًا.</p>
+              <a class="button button-primary" href="https://play.google.com/store/apps/details?id=com.andalus.aqar" target="_blank" rel="noopener noreferrer">تحميل من Google Play</a>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="quick-benefits" aria-label="فوائد التطبيق">
+        <div class="container quick-grid">
+          <article>
+            <span class="quick-number">01</span>
+            <div>
+              <strong>ابحث بدقّة</strong>
+              <p>اختر المدينة والحي ونوع العقار.</p>
+            </div>
+          </article>
+          <article>
+            <span class="quick-number">02</span>
+            <div>
+              <strong>شاهد التفاصيل</strong>
+              <p>صور ومواصفات وموقع واضح.</p>
+            </div>
+          </article>
+          <article>
+            <span class="quick-number">03</span>
+            <div>
+              <strong>تواصل مباشرة</strong>
+              <p>اتصال أو واتساب من صفحة العقار.</p>
+            </div>
+          </article>
+          <article>
+            <span class="quick-number">04</span>
+            <div>
+              <strong>انشر طلبك</strong>
+              <p>وضّح العقار الذي تبحث عنه.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section features" id="why" aria-labelledby="features-title">
+        <div class="container">
+          <div class="section-heading reveal">
+            <div>
+              <span class="section-kicker">كل ما تحتاجه بمكان واحد</span>
+              <h2 id="features-title">تجربة عقارية أبسط وأوضح</h2>
+            </div>
+            <p>صُمّم التطبيق حتى تصل إلى المعلومة المهمة بسرعة، سواء كنت تبحث عن عقار أو تريد نشره.</p>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card feature-card-large reveal">
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6" /><path d="m16 16 4 4M8 11h6M11 8v6" /></svg>
+              </div>
+              <span class="card-label">بحث متقدم</span>
+              <h3>اعثر على العقار المناسب</h3>
+              <p>ابحث حسب المدينة والحي والتصنيف، وراجع النتائج بطريقة مرتبة وواضحة.</p>
+              <div class="search-demo" aria-hidden="true">
+                <div class="search-field">
+                  <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6" /><path d="m16 16 4 4" /></svg>
+                  <span>ابحث في الرمادي، الفلوجة...</span>
+                </div>
+                <div class="filter-chips">
+                  <span class="active">الكل</span><span>بيت</span><span>أرض</span><span>شقة</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="feature-card reveal">
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 20V9l8-6 8 6v11H4Z" /><path d="M9 20v-6h6v6" /></svg>
+              </div>
+              <span class="card-label">نشر العقار</span>
+              <h3>انشر عقارك وأنت ببيتك</h3>
+              <p>أضف الصور والسعر والمواصفات ووسائل التواصل بخطوات واضحة.</p>
+            </article>
+
+            <article class="feature-card reveal">
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z" /></svg>
+              </div>
+              <span class="card-label">المفضلة</span>
+              <h3>احتفظ بخياراتك</h3>
+              <p>احفظ العقارات التي تعجبك وارجع إليها متى ما تريد.</p>
+            </article>
+
+            <article class="feature-card feature-card-wide reveal">
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 21V7l8-4 8 4v14" /><path d="M8 10h2M14 10h2M8 14h2M14 14h2M10 21v-3h4v3" /></svg>
+              </div>
+              <div>
+                <span class="card-label">المكاتب العقارية</span>
+                <h3>صفحات مخصصة للمكاتب</h3>
+                <p>تعرّف على المكاتب وعقاراتها وتواصل معها من داخل التطبيق.</p>
+              </div>
+              <div class="office-badge" aria-hidden="true">
+                <span class="mini-mark">ع</span>
+                <div><strong>مكتب عقاري</strong><small>ملف واضح وعقارات مرتبة</small></div>
+                <svg viewBox="0 0 24 24"><path d="m14 7-5 5 5 5" /></svg>
+              </div>
+            </article>
+
+            <article class="feature-card reveal">
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" /><circle cx="12" cy="10" r="2.5" /></svg>
+              </div>
+              <span class="card-label">الموقع على الخريطة</span>
+              <h3>اعرف مكان العقار</h3>
+              <p>شاهد موقع العقار واتجاهه بسهولة عندما يضيف الناشر الموقع.</p>
+            </article>
+
+            <article class="feature-card reveal">
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3Z" /><path d="M9 8h6M9 12h4" /></svg>
+              </div>
+              <span class="card-label">طلبات العقارات</span>
+              <h3>ما لكيت العقار؟ انشر طلبك</h3>
+              <p>أضف مواصفات العقار الذي تحتاجه ليكون طلبك واضحًا للمكاتب والناشرين.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="coverage" id="coverage" aria-labelledby="coverage-title">
+        <div class="container coverage-layout">
+          <div class="coverage-copy reveal">
+            <span class="section-kicker">بحث محلي أدق</span>
+            <h2 id="coverage-title">مدن ومناطق الأنبار<br />ضمن بحث واحد</h2>
+            <p>ابدأ بالمدينة، ثم اختر الحي أو المنطقة حتى تصل إلى النتائج الأقرب لطلبك.</p>
+          </div>
+          <div class="city-cloud reveal" aria-label="أمثلة على مناطق البحث">
+            <span class="city-main">الرمادي</span>
+            <span>الفلوجة</span>
+            <span>هيت</span>
+            <span>القائم</span>
+            <span>حديثة</span>
+            <span>الحبانية</span>
+            <span>الكرمة</span>
+            <span>عانة</span>
+            <span>راوه</span>
+            <span>الرطبة</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section steps" id="how" aria-labelledby="steps-title">
+        <div class="container steps-layout">
+          <div class="steps-copy reveal">
+            <span class="section-kicker">ابدأ خلال دقائق</span>
+            <h2 id="steps-title">من التحميل إلى عقارك<br />بثلاث خطوات</h2>
+            <p>واجهة عربية سهلة، مصممة لتكون واضحة لكل المستخدمين.</p>
+            <a
+              class="text-link"
+              href="https://play.google.com/store/apps/details?id=com.andalus.aqar"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              افتح صفحة التطبيق
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 7-5 5 5 5" /></svg>
+            </a>
+          </div>
+
+          <ol class="steps-list">
+            <li class="reveal">
+              <span>١</span>
+              <div><h3>نزّل التطبيق</h3><p>حمّله من متجر Google Play على هاتفك.</p></div>
+            </li>
+            <li class="reveal">
+              <span>٢</span>
+              <div><h3>أنشئ حسابك</h3><p>سجّل بياناتك لتستفيد من جميع المزايا.</p></div>
+            </li>
+            <li class="reveal">
+              <span>٣</span>
+              <div><h3>ابحث أو انشر</h3><p>تصفّح العقارات أو أضف إعلانك بخطوات بسيطة.</p></div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section offices" id="offices" aria-labelledby="offices-title">
+        <div class="container">
+          <div class="office-panel reveal">
+            <div class="office-pattern" aria-hidden="true"></div>
+            <div class="office-copy">
+              <span class="section-kicker">لأصحاب المكاتب العقارية</span>
+              <h2 id="offices-title">خلّي مكتبك أقرب للباحثين عن العقار</h2>
+              <p>اعرض عقارات مكتبك بصفحة مرتبة، واستقبل الاستفسارات من المستخدمين بصورة مباشرة.</p>
+              <div class="office-actions">
+                <a
+                  class="button button-primary"
+                  href="https://wa.me/9647838081677?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D9%86%D8%B6%D9%85%D8%A7%D9%85%20%D9%83%D9%85%D9%83%D8%AA%D8%A8%20%D8%B9%D9%82%D8%A7%D8%B1%D9%8A%20%D9%81%D9%8A%20%D8%AA%D8%B7%D8%A8%D9%8A%D9%82%20%D8%B9%D9%82%D8%A7%D8%B1%D8%A7%D8%AA%20%D8%A7%D9%84%D8%A7%D9%86%D8%A8%D8%A7%D8%B1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  اطلب الانضمام كمكتب
+                </a>
+                <a class="button button-ghost" href="tel:+9647838081677">اتصل بنا</a>
+              </div>
+            </div>
+            <div class="office-visual" aria-hidden="true">
+              <div class="office-phone">
+                <div class="phone-top"><span></span><b>ملف المكتب</b><i></i></div>
+                <div class="profile-orb">ع</div>
+                <strong>مكتبك العقاري</strong>
+                <small>الرمادي، الأنبار</small>
+                <div class="mini-stats"><span><b>عقارات</b><small>مرتبة</small></span><span><b>تواصل</b><small>مباشر</small></span></div>
+                <div class="listing-lines"><i></i><i></i><i></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section faq" id="faq" aria-labelledby="faq-title">
+        <div class="container faq-layout">
+          <div class="faq-heading reveal">
+            <span class="section-kicker">إجابات سريعة</span>
+            <h2 id="faq-title">أسئلة شائعة</h2>
+            <p>إذا عندك سؤال آخر، راسلنا مباشرة وسنساعدك.</p>
+            <a
+              class="text-link"
+              href="https://wa.me/9647838081677"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              تواصل عبر واتساب
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 7-5 5 5 5" /></svg>
+            </a>
+          </div>
+
+          <div class="accordion">
+            <article class="faq-item reveal">
+              <h3>
+                <button type="button" aria-expanded="true" aria-controls="faq-answer-1" id="faq-question-1">
+                  هل تحميل التطبيق مجاني؟
+                  <span aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-question-1"><p>نعم، يمكنك تحميل تطبيق عقارات الانبار من Google Play.</p></div>
+            </article>
+            <article class="faq-item reveal">
+              <h3>
+                <button type="button" aria-expanded="false" aria-controls="faq-answer-2" id="faq-question-2">
+                  على أي أجهزة يعمل التطبيق؟
+                  <span aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2" hidden><p>التطبيق متوفر حاليًا لأجهزة Android عبر متجر Google Play.</p></div>
+            </article>
+            <article class="faq-item reveal">
+              <h3>
+                <button type="button" aria-expanded="false" aria-controls="faq-answer-3" id="faq-question-3">
+                  كيف أنشر عقاري؟
+                  <span aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-question-3" hidden><p>أنشئ حسابًا، اضغط زر إضافة عقار، ثم أدخل التفاصيل والصور ووسائل التواصل.</p></div>
+            </article>
+            <article class="faq-item reveal">
+              <h3>
+                <button type="button" aria-expanded="false" aria-controls="faq-answer-4" id="faq-question-4">
+                  كيف أتواصل مع صاحب العقار؟
+                  <span aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq-answer" id="faq-answer-4" role="region" aria-labelledby="faq-question-4" hidden><p>من صفحة تفاصيل العقار يمكنك الاتصال أو فتح محادثة واتساب بحسب وسيلة التواصل المتاحة.</p></div>
+            </article>
+            <article class="faq-item reveal">
+              <h3>
+                <button type="button" aria-expanded="false" aria-controls="faq-answer-5" id="faq-question-5">
+                  كيف أنضم بصفتي مكتبًا عقاريًا؟
+                  <span aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq-answer" id="faq-answer-5" role="region" aria-labelledby="faq-question-5" hidden><p>اضغط «اطلب الانضمام كمكتب» وأرسل بيانات المكتب عبر واتساب، وسنتواصل معك لإكمال الطلب.</p></div>
+            </article>
+            <article class="faq-item reveal">
+              <h3>
+                <button type="button" aria-expanded="false" aria-controls="faq-answer-6" id="faq-question-6">
+                  أين أجد معلومات حذف الحساب والبيانات؟
+                  <span aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq-answer" id="faq-answer-6" role="region" aria-labelledby="faq-question-6" hidden><p>جميع الخطوات موضحة في <a href="https://aysar93.github.io/aqar-pages/delete-account.html" target="_blank" rel="noopener noreferrer">صفحة حذف الحساب والبيانات</a>.</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="download-band" aria-label="تحميل التطبيق">
+        <div class="container download-inner reveal">
+          <div>
+            <span>جاهز تبدأ؟</span>
+            <h2>نزّل تطبيق عقارات الانبار هسه</h2>
+          </div>
+          <a
+            class="button button-primary"
+            href="https://play.google.com/store/apps/details?id=com.andalus.aqar"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            تحميل من Google Play
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.6v14.8L19.6 12 7 4.6Z" fill="currentColor" /></svg>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-main">
+        <div class="footer-brand">
+          <a class="brand" href="#top">
+            <img class="brand-logo" src="assets/app-icon.webp" alt="" width="48" height="48" loading="lazy" />
+            <span class="brand-copy"><strong>عقارات الانبار</strong><small>دليلك العقاري</small></span>
+          </a>
+          <p>منصة عراقية تسهّل الوصول إلى العقارات والمكاتب في محافظة الأنبار.</p>
+        </div>
+        <div class="footer-column">
+          <strong>روابط سريعة</strong>
+          <a href="about/">من نحن</a>
+          <a href="contact/">اتصل بنا</a>
+          <a href="#videos">الفيديوهات</a>
+          <a href="#why">مزايا التطبيق</a>
+          <a href="#coverage">مناطق التغطية</a>
+          <a href="#offices">انضم كمكتب</a>
+          <a href="#faq">الأسئلة الشائعة</a>
+        </div>
+        <div class="footer-column">
+          <strong>تواصل معنا</strong>
+          <span>الرمادي – الإسكان القديمة</span>
+          <a href="tel:+9647838081677" dir="ltr">0783 808 1677</a>
+          <a href="https://wa.me/9647838081677" target="_blank" rel="noopener noreferrer">مراسلة عبر واتساب</a>
+          <a href="https://www.facebook.com/aqar.anbar" target="_blank" rel="noopener noreferrer">صفحتنا على فيسبوك</a>
+          <a href="mailto:aysar.aliraqe@gmail.com">aysar.aliraqe@gmail.com</a>
+        </div>
+        <div class="footer-column">
+          <strong>معلومات قانونية</strong>
+          <a href="https://aysar93.github.io/aqar-pages/privacy.html" target="_blank" rel="noopener noreferrer">سياسة الخصوصية</a>
+          <a href="https://aysar93.github.io/aqar-pages/terms.html" target="_blank" rel="noopener noreferrer">الشروط والأحكام</a>
+          <a href="https://aysar93.github.io/aqar-pages/delete-account.html" target="_blank" rel="noopener noreferrer">حذف الحساب والبيانات</a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>© <span id="year">2026</span> عقارات الانبار. جميع الحقوق محفوظة.</p>
+        <a href="#top">العودة للأعلى <span aria-hidden="true">↑</span></a>
+      </div>
+    </footer>
+
+    <a
+      class="whatsapp-float"
+      href="https://wa.me/9647838081677"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="تواصل معنا عبر واتساب"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L4 20.2l1.1-4a8.4 8.4 0 1 1 15.4-4.5Z" />
+        <path d="M9 7.7c.2-.5.5-.5.8-.5h.5c.2 0 .4 0 .5.4l.8 1.9c.1.3.1.5-.1.7l-.6.7c-.2.2-.3.4-.1.7.8 1.4 1.8 2.4 3.3 3 .3.1.5.1.7-.1l.9-1.1c.2-.3.5-.3.7-.2l1.8.9c.3.1.4.3.4.5 0 .6-.3 1.5-.8 1.9-.5.5-1.3.8-2.1.8-.6 0-1.3-.1-2.2-.5-1-.4-4.2-1.5-5.9-5.2-.5-1-.5-1.8-.5-2.2 0-.7.3-1.3.7-1.7.3-.3.7-.5 1.2-.5Z" />
+      </svg>
+    </a>
+
+    <aside class="mobile-install" aria-label="تحميل تطبيق عقارات الانبار">
+      <img class="mini-logo" src="assets/app-icon.webp" alt="" width="45" height="45" />
+      <div><strong>عقارات الانبار</strong><small>متوفر على Android</small></div>
+      <a
+        href="https://play.google.com/store/apps/details?id=com.andalus.aqar"
+        target="_blank"
+        rel="noopener noreferrer"
+      >تحميل</a>
+    </aside>
+
+    <script src="assets/app.js" defer></script>
+  </body>
 </html>
