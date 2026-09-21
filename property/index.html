@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="robots" content="noindex,nofollow">
+  <title>تفاصيل العقار | عقارات الانبار</title>
+  <link rel="icon" href="../assets/app-icon-192.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <style>
+    .property-page{padding:8rem 0 4rem}.property-card{overflow:hidden;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);box-shadow:var(--shadow)}.property-image{width:100%;height:min(48vw,30rem);object-fit:cover;background:var(--navy-2)}.property-content{padding:clamp(1.25rem,4vw,2.5rem)}.property-kicker{color:var(--gold-light);font-weight:800}.property-title{margin:.35rem 0;font-size:clamp(1.55rem,5vw,2.5rem);line-height:1.4}.property-location{color:var(--muted)}.property-price{margin:1rem 0;color:var(--gold-light);font-size:clamp(1.35rem,4vw,2rem);font-weight:800}.property-facts{display:flex;flex-wrap:wrap;gap:.65rem;margin:1.3rem 0}.property-facts span{padding:.45rem .75rem;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:.9rem}.property-description{white-space:pre-line;color:var(--muted)}.property-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}.property-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:3rem;padding:0 1.25rem;border-radius:.8rem;font-weight:800}.contact-button{background:var(--gold);color:var(--ink)}.app-button{border:1px solid var(--line);color:var(--text)}.property-error{text-align:center;padding:4rem 1.5rem}.property-loading{display:grid;place-items:center;min-height:45vh;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <header class="site-header inner-header"><div class="container header-inner"><a class="brand" href="../"><img class="brand-logo" src="../assets/app-icon.webp" alt="" width="48" height="48"><span class="brand-copy"><strong>عقارات الانبار</strong><small>دليلك العقاري</small></span></a><a class="button button-small header-cta" href="https://play.google.com/store/apps/details?id=com.andalus.aqar" target="_blank" rel="noopener noreferrer">حمّل التطبيق</a></div></header>
+  <main class="property-page"><div class="container" id="app"><div class="property-loading">جارٍ تحميل تفاصيل العقار…</div></div></main>
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
+    import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js';
+
+    const root = document.querySelector('#app');
+    const id = new URLSearchParams(location.search).get('id');
+    const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));
+    const price = (value) => new Intl.NumberFormat('ar-IQ').format(Number(value || 0));
+    const cleanPhone = (value) => String(value || '').replace(/[^0-9]/g, '').replace(/^0/, '964');
+    const locationText = (property) => property.location || [property.city, property.areaName || property.district, property.landmark].filter(Boolean).join(' - ');
+    const fact = (label, value) => value ? `<span>${escapeHtml(label)}: ${escapeHtml(value)}</span>` : '';
+    const unavailable = () => { root.innerHTML = '<section class="property-card property-error"><h1>هذا العقار غير متاح حاليًا</h1><p>قد يكون الإعلان قد حُذف أو تغيّرت حالته.</p><a class="button button-primary" href="../">العودة للموقع</a></section>'; };
+
+    if (!id) {
+      unavailable();
+    } else {
+      try {
+        const app = initializeApp({ apiKey: 'AIzaSyCrrMFoyg66WCDleskA4PUuia3g7AOZRQQ', authDomain: 'aqar-9f3f9.firebaseapp.com', projectId: 'aqar-9f3f9' });
+        const snapshot = await getDoc(doc(getFirestore(app), 'properties', id));
+        if (!snapshot.exists()) throw new Error('not-found');
+        const property = snapshot.data();
+        const image = (property.images || [])[0] || property.imageUrl || '';
+        const phone = property.officePhone || property.ownerPhone || property.publisherPhone || '';
+        const whatsapp = property.officeWhatsapp || property.ownerWhatsapp || property.publisherWhatsapp || phone;
+        const contact = property.officeName || property.publisherName || 'صاحب العقار';
+        const status = ({sold: 'تم البيع', rented: 'تم التأجير'})[String(property.availabilityStatus || '').toLowerCase()] || 'متوفر';
+        document.title = `${property.title || 'تفاصيل العقار'} | عقارات الانبار`;
+        root.innerHTML = `<article class="property-card">${image ? `<img class="property-image" src="${escapeHtml(image)}" alt="صورة ${escapeHtml(property.title || 'العقار')}">` : ''}<section class="property-content"><p class="property-kicker">${escapeHtml(property.adType || 'عقار')} • ${escapeHtml(property.propertyType || '')} • ${status}</p><h1 class="property-title">${escapeHtml(property.title || 'عقار في الأنبار')}</h1><p class="property-location">📍 ${escapeHtml(locationText(property))}</p><p class="property-price">${price(property.price)} د.ع ${property.negotiable ? '• قابل للتفاوض' : ''}</p><div class="property-facts">${fact('المساحة', property.area ? `${property.area} م²` : '')}${fact('غرف النوم', property.rooms)}${fact('الحمامات', property.bathrooms)}${fact('الطوابق', property.floors)}${fact('رقم العقار', property.adNumber)}</div>${property.description ? `<p class="property-description">${escapeHtml(property.description)}</p>` : ''}<div class="property-actions">${whatsapp ? `<a class="contact-button" href="https://wa.me/${cleanPhone(whatsapp)}?text=${encodeURIComponent(`مرحباً، أريد الاستفسار عن العقار: ${property.title || ''}`)}" target="_blank" rel="noopener noreferrer">واتساب ${escapeHtml(contact)}</a>` : ''}<a class="app-button" href="https://play.google.com/store/apps/details?id=com.andalus.aqar" target="_blank" rel="noopener noreferrer">فتح التطبيق</a></div></section></article>`;
+      } catch (_) { unavailable(); }
+    }
+  </script>
+</body>
+</html>
