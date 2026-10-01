@@ -18,7 +18,7 @@
     <meta property="og:title" content="عقارات الانبار" />
     <meta
       property="og:description"
-      content="بيوت، أراضٍ، شقق ومحلات في مكان واحد. حمّل تطبيق عقارات الانبار من Google Play."
+      content="بيوت، أراضٍ، شقق ومحلات في مكان واحد. حمّل تطبيق عقارات الانبار من App Store أو Google Play."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://aysar93.github.io/aqar-pages/" />
@@ -62,8 +62,9 @@
             "name": "عقارات الانبار",
             "description": "تطبيق للبحث عن العقارات ونشرها والتواصل مع المكاتب العقارية في محافظة الأنبار.",
             "applicationCategory": "LifestyleApplication",
-            "operatingSystem": "Android",
+            "operatingSystem": "Android, iOS",
             "downloadUrl": "https://play.google.com/store/apps/details?id=com.andalus.aqar",
+            "installUrl": "https://apps.apple.com/app/id6815804115",
             "image": "https://aysar93.github.io/aqar-pages/assets/app-icon-512.png",
             "publisher": { "@id": "https://aysar93.github.io/aqar-pages/#organization" }
           },
@@ -77,6 +78,7 @@
             "telephone": "+9647838081677",
             "sameAs": [
               "https://play.google.com/store/apps/details?id=com.andalus.aqar",
+              "https://apps.apple.com/app/id6815804115",
               "https://www.facebook.com/aqar.anbar"
             ]
           },
@@ -86,7 +88,7 @@
               {
                 "@type": "Question",
                 "name": "هل تحميل تطبيق عقارات الانبار مجاني؟",
-                "acceptedAnswer": {"@type": "Answer", "text": "نعم، يمكن تحميل التطبيق لأجهزة Android من Google Play."}
+                "acceptedAnswer": {"@type": "Answer", "text": "نعم، يمكن تحميل التطبيق لأجهزة iPhone من App Store وأجهزة Android من Google Play."}
               },
               {
                 "@type": "Question",
@@ -236,6 +238,7 @@
                     <strong>Google Play</strong>
                   </span>
                 </a>
+                <a class="button button-primary" href="https://apps.apple.com/app/id6815804115" target="_blank" rel="noopener noreferrer" aria-label="تحميل عقارات الانبار من App Store"><span aria-hidden="true" style="font-size:1.35em">●</span><span><small>حمّله الآن من</small><strong>App Store</strong></span></a>
                 <a class="button button-ghost" href="#phone-demo">جرّب التطبيق</a>
               </div>
 
@@ -634,7 +637,7 @@
           <ol class="steps-list">
             <li class="reveal">
               <span>١</span>
-              <div><h3>نزّل التطبيق</h3><p>حمّله من متجر Google Play على هاتفك.</p></div>
+              <div><h3>نزّل التطبيق</h3><p>حمّله من App Store على iPhone أو من Google Play على Android.</p></div>
             </li>
             <li class="reveal">
               <span>٢</span>
@@ -707,7 +710,7 @@
                   <span aria-hidden="true"></span>
                 </button>
               </h3>
-              <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-question-1"><p>نعم، يمكنك تحميل تطبيق عقارات الانبار من Google Play.</p></div>
+              <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-question-1"><p>نعم، يمكنك تحميل تطبيق عقارات الانبار من App Store لأجهزة iPhone ومن Google Play لأجهزة Android.</p></div>
             </article>
             <article class="faq-item reveal">
               <h3>
@@ -716,7 +719,7 @@
                   <span aria-hidden="true"></span>
                 </button>
               </h3>
-              <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2" hidden><p>التطبيق متوفر حاليًا لأجهزة Android عبر متجر Google Play.</p></div>
+              <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2" hidden><p>التطبيق متوفر لأجهزة iPhone عبر App Store ولأجهزة Android عبر Google Play.</p></div>
             </article>
             <article class="faq-item reveal">
               <h3>
@@ -773,6 +776,7 @@
             تحميل من Google Play
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.6v14.8L19.6 12 7 4.6Z" fill="currentColor" /></svg>
           </a>
+          <a class="button button-primary" href="https://apps.apple.com/app/id6815804115" target="_blank" rel="noopener noreferrer" aria-label="تحميل عقارات الانبار من App Store">تحميل من App Store</a>
         </div>
       </section>
     </main>
@@ -832,14 +836,16 @@
 
     <aside class="mobile-install" aria-label="تحميل تطبيق عقارات الانبار">
       <img class="mini-logo" src="assets/app-icon.webp" alt="" width="45" height="45" />
-      <div><strong>عقارات الانبار</strong><small>متوفر على Android</small></div>
+      <div><strong>عقارات الانبار</strong><small>متوفر على iPhone وAndroid</small></div>
       <a
         href="https://play.google.com/store/apps/details?id=com.andalus.aqar"
+        data-ios-href="https://apps.apple.com/app/id6815804115"
         target="_blank"
         rel="noopener noreferrer"
       >تحميل</a>
     </aside>
 
+    <script>(function(){var link=document.querySelector(".mobile-install a[data-ios-href]");if(link && /iPhone|iPad|iPod/i.test(navigator.userAgent)) link.href=link.dataset.iosHref;})();</script>
     <script src="assets/app.js" defer></script>
   </body>
 </html>
