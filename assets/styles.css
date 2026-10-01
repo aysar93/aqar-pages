@@ -4082,3 +4082,7 @@ select {
     padding-block: calc(5.5rem + env(safe-area-inset-top)) 2.5rem;
   }
 }
+
+
+/* Official-style store download badges */
+.store-badge{display:inline-flex;align-items:center;justify-content:center;gap:.7rem;min-height:3.7rem;padding:.55rem 1rem;border:1px solid rgba(255,255,255,.22);border-radius:.75rem;background:#050505;color:#fff;text-decoration:none;direction:ltr;box-shadow:0 8px 24px rgba(0,0,0,.18);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}.store-badge:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.42);box-shadow:0 12px 30px rgba(0,0,0,.24)}.store-badge span:last-child{display:flex;flex-direction:column;align-items:flex-start;line-height:1.05}.store-badge small{font-size:.65rem;font-weight:500;opacity:.88}.store-badge strong{font-size:1.05rem;font-weight:700;letter-spacing:-.02em}.store-badge svg{width:1.65rem;height:1.65rem}.store-badge .apple-mark{font-size:1.55rem;line-height:1}.download-inner .store-badge{min-width:11.5rem}@media(max-width:38rem){.hero-actions .store-badge,.download-inner .store-badge{width:100%;max-width:19rem}.download-inner{align-items:center;text-align:center}}
