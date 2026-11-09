@@ -6,6 +6,15 @@
     <meta name="theme-color" content="#0f172a" />
     <meta name="robots" content="noindex" />
     <title>الصفحة غير موجودة | عقارات الانبار</title>
+    <script>
+      (function(){
+        var path = window.location.pathname;
+        var m = path.match(/\/booking\/venue\/([^\/\?#]+)/);
+        if (m && m[1] && m[1] !== 'venue') {
+          window.location.replace('/aqar-pages/booking/venue/?id=' + encodeURIComponent(m[1]) + (window.location.search ? '&' + window.location.search.slice(1) : ''));
+        }
+      })();
+    </script>
     <link rel="icon" href="assets/app-icon-192.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

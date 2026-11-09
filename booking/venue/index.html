@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="robots" content="index,follow">
+  <title>تفاصيل مكان الحجز | عقارات الانبار</title>
+  <meta name="description" content="احجز شاليهات، مزارع، استراحات، وقاعات مناسبات في الأنبار بكل سهولة وأمان عبر تطبيق عقارات الأنبار.">
+  <meta property="og:title" content="تفاصيل مكان الحجز | عقارات الانبار">
+  <meta property="og:description" content="احجز شاليهات، مزارع، استراحات، وقاعات مناسبات في الأنبار بكل سهولة وأمان عبر تطبيق عقارات الأنبار.">
+  <meta property="og:image" content="../../assets/app-icon-512.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../../assets/app-icon-192.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <style>
+    .venue-page { padding: 6.5rem 0 4rem; }
+    .venue-card { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); box-shadow: var(--shadow); }
+    .venue-gallery { position: relative; width: 100%; height: min(52vw, 32rem); background: var(--navy-2); overflow: hidden; }
+    .venue-image { width: 100%; height: 100%; object-fit: cover; }
+    .venue-content { padding: clamp(1.25rem, 4vw, 2.5rem); }
+    .venue-kicker { color: var(--gold-light); font-weight: 800; font-size: 0.95rem; margin-bottom: 0.35rem; }
+    .venue-title { margin: 0.25rem 0 0.5rem; font-size: clamp(1.6rem, 5vw, 2.4rem); line-height: 1.35; color: var(--text); }
+    .venue-location { color: var(--muted); font-size: 1.05rem; display: flex; align-items: center; gap: 0.35rem; margin-bottom: 1rem; }
+    .venue-price-box { margin: 1.25rem 0; padding: 1.1rem 1.4rem; background: var(--card-soft); border: 1px solid var(--line); border-radius: 1rem; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.65rem; }
+    .venue-price-label { color: var(--muted); font-size: 0.95rem; }
+    .venue-price-amount { color: var(--gold-light); font-size: clamp(1.5rem, 4.5vw, 2.2rem); font-weight: 900; }
+    .venue-price-period { color: var(--muted); font-size: 0.9rem; }
+    .venue-deposit { color: var(--muted); font-size: 0.88rem; width: 100%; margin-top: 0.25rem; border-top: 1px dashed var(--line); padding-top: 0.5rem; }
+    .venue-facts { display: flex; flex-wrap: wrap; gap: 0.65rem; margin: 1.3rem 0; }
+    .venue-facts span { padding: 0.45rem 0.85rem; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: 0.9rem; background: rgba(255, 255, 255, 0.02); }
+    .venue-terms { margin: 1.5rem 0; padding: 1.1rem 1.4rem; background: rgba(212, 175, 55, 0.05); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 1rem; }
+    .venue-terms h3 { margin: 0 0 0.5rem; color: var(--gold-light); font-size: 1.05rem; }
+    .venue-terms p { margin: 0; white-space: pre-line; color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
+    .venue-actions { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-top: 2rem; }
+    .venue-actions a { display: inline-flex; align-items: center; justify-content: center; min-height: 3.2rem; padding: 0 1.5rem; border-radius: 0.85rem; font-weight: 800; font-size: 1rem; text-decoration: none; transition: transform 0.15s ease, opacity 0.15s ease; }
+    .venue-actions a:active { transform: scale(0.98); }
+    .app-open-button { background: var(--gold); color: var(--ink); flex: 1 1 14rem; box-shadow: 0 0.5rem 1.5rem rgba(212, 175, 55, 0.25); }
+    .store-button { border: 1px solid var(--line); color: var(--text); background: var(--card-soft); flex: 1 1 10rem; }
+    .venue-error { text-align: center; padding: 4.5rem 1.5rem; }
+    .venue-error h1 { font-size: clamp(1.4rem, 4vw, 2rem); margin-bottom: 0.75rem; color: var(--text); }
+    .venue-error p { color: var(--muted); margin-bottom: 1.75rem; max-width: 28rem; margin-inline: auto; }
+    .venue-loading { display: grid; place-items: center; min-height: 50vh; color: var(--muted); font-size: 1.1rem; }
+    .app-banner { margin-top: 1.5rem; padding: 0.9rem 1.2rem; background: var(--card-soft); border: 1px solid var(--line); border-radius: 0.85rem; display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
+    .app-banner-text { font-size: 0.88rem; color: var(--muted); }
+    .app-banner-text strong { color: var(--text); display: block; margin-bottom: 0.15rem; }
+  </style>
+</head>
+<body>
+  <header class="site-header inner-header">
+    <div class="container header-inner">
+      <a class="brand" href="../../">
+        <img class="brand-logo" src="../../assets/app-icon.webp" alt="عقارات الانبار" width="48" height="48">
+        <span class="brand-copy"><strong>عقارات الانبار</strong><small>قسم الحجوزات</small></span>
+      </a>
+      <a class="button button-small header-cta" href="https://play.google.com/store/apps/details?id=com.andalus.aqar" target="_blank" rel="noopener noreferrer">حمّل التطبيق</a>
+    </div>
+  </header>
+
+  <main class="venue-page">
+    <div class="container" id="app">
+      <div class="venue-loading">جارٍ تحميل تفاصيل المكان…</div>
+    </div>
+  </main>
+
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
+    import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js';
+
+    const root = document.querySelector('#app');
+    const params = new URLSearchParams(location.search);
+    const id = params.get('id') || location.pathname.split('/').filter(Boolean).pop();
+    const VALID_ID = /^[A-Za-z0-9_-]{1,128}$/;
+
+    // Public share page reads from the production project only.
+    const PROD_FIREBASE = {
+      apiKey: 'AIzaSyCrrMFoyg66WCDleskA4PUuia3g7AOZRQQ',
+      authDomain: 'aqar-9f3f9.firebaseapp.com',
+      projectId: 'aqar-9f3f9'
+    };
+    const PLAY_URL = 'https://play.google.com/store/apps/details?id=com.andalus.aqar';
+    const APPSTORE_URL = 'https://apps.apple.com/app/id6815804115';
+    const isAndroid = /Android/i.test(navigator.userAgent);
+    const httpUrl = (s) => typeof s === 'string' && /^https:\/\//i.test(s.trim()) ? s.trim() : null;
+
+    const escapeHtml = (val) => String(val ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+    const priceFmt = (val) => new Intl.NumberFormat('ar-IQ').format(Number(val || 0));
+
+    const categoryNames = {
+      chalet: 'شاليه',
+      farm: 'مزرعة',
+      resort: 'منتجع',
+      hall: 'قاعة مناسبات',
+      villa: 'فيلا خاصة',
+      resthouse: 'استراحة',
+      camp: 'مخيم'
+    };
+
+    const showError = (title, msg) => {
+      root.innerHTML = `
+        <section class="venue-card venue-error">
+          <h1>${escapeHtml(title)}</h1>
+          <p>${escapeHtml(msg)}</p>
+          <div class="hero-actions" style="justify-content:center; gap:0.75rem;">
+            <a class="button button-primary" href="../../">العودة للرئيسية</a>
+            <a class="button button-ghost" href="https://play.google.com/store/apps/details?id=com.andalus.aqar" target="_blank" rel="noopener noreferrer">تحميل التطبيق</a>
+          </div>
+        </section>
+      `;
+    };
+
+    const unavailable = () => showError('المكان غير متاح حالياً', 'قد يكون هذا المكان قيد المراجعة أو تم حذفه أو أن الرابط غير صحيح.');
+
+    if (!id || id === 'venue' || id === 'booking' || !VALID_ID.test(id)) {
+      showError('معرّف المكان غير صحيح', 'لم يتم تحديد معرّف مكان صالح في الرابط. يرجى التحقق من الرابط والمحاولة مجدداً.');
+    } else {
+      (async () => {
+        try {
+          let snapshot = null;
+          try {
+            const db = getFirestore(initializeApp(PROD_FIREBASE));
+            snapshot = await getDoc(doc(db, 'booking_venues', id));
+          } catch (e) {
+            // Not found / not public in production: never fall back to any other project.
+            if (e && (e.code === 'permission-denied' || e.code === 'not-found')) { unavailable(); return; }
+            throw e;
+          }
+
+          if (!snapshot || !snapshot.exists()) { unavailable(); return; }
+
+          const venue = snapshot.data();
+          // Mirrors backend activation rules: active and not pending/rejected ownership verification.
+          if (venue.active !== true || ['pending', 'rejected'].includes(venue.verificationStatus)) {
+            unavailable();
+            return;
+          }
+
+          const title = venue.name || 'مكان للحجز في الأنبار';
+          const cat = categoryNames[venue.category] || venue.category || 'مكان حجز';
+          const loc = venue.location || 'الأنبار';
+          const hourly = venue.pricingMode === 'hourly';
+          const price = (hourly ? venue.hourlyPrice : venue.price) || 0;
+          const deposit = venue.deposit || 0;
+          const terms = venue.terms || '';
+          const images = [];
+          const addImg = (s) => { const u = httpUrl(s); if (u && !images.includes(u)) images.push(u); };
+          addImg(venue.coverUrl);
+          [venue.images, venue.photos, venue.mediaPaths].forEach((l) => Array.isArray(l) && l.forEach(addImg));
+          addImg(venue.imageUrl);
+          const coverImage = images[0];
+
+          document.title = `${title} | عقارات الانبار`;
+
+          // Open the installed app (Android intent with Play Store fallback); store links otherwise.
+          const appDeepLink = isAndroid
+            ? `intent://booking/venue?id=${encodeURIComponent(id)}#Intent;scheme=aqar;package=com.andalus.aqar;S.browser_fallback_url=${encodeURIComponent(PLAY_URL)};end`
+            : APPSTORE_URL;
+
+          root.innerHTML = `
+            <article class="venue-card">
+              ${images.length > 0 ? `
+                <div class="venue-gallery">
+                  <img class="venue-image" src="${escapeHtml(coverImage)}" alt="صورة ${escapeHtml(title)}" onerror="this.style.display='none'">
+                </div>
+              ` : ''}
+              <section class="venue-content">
+                <div class="venue-kicker">${escapeHtml(cat)} • متاح للحجز</div>
+                <h1 class="venue-title">${escapeHtml(title)}</h1>
+                <div class="venue-location">📍 ${escapeHtml(loc)}</div>
+
+                <div class="venue-price-box">
+                  <span class="venue-price-label">السعر:</span>
+                  <span class="venue-price-amount">${priceFmt(price)} د.ع</span>
+                  <span class="venue-price-period">/ ${hourly ? 'الساعة' : venue.pricingMode === 'shift' ? 'الفترة' : 'اليوم'}</span>
+                  ${deposit > 0 ? `<div class="venue-deposit">العربون المطلوب لتأكيد الحجز: <strong>${priceFmt(deposit)} د.ع</strong></div>` : ''}
+                </div>
+
+                <div class="venue-facts">
+                  <span>نوع الحجز: ${escapeHtml(cat)}</span>
+                  <span>نظام التسعير: ${hourly ? 'بالساعة' : venue.pricingMode === 'shift' ? 'فترات محددة' : 'يومي'}</span>
+                  ${venue.cancellationPolicy ? `<span>إلغاء مجاني حتى: ${escapeHtml(venue.cancellationPolicy.freeCancellationHours || 24)} ساعة</span>` : ''}
+                </div>
+
+                ${terms ? `
+                  <div class="venue-terms">
+                    <h3>شروط وسياسة المكان</h3>
+                    <p>${escapeHtml(terms)}</p>
+                  </div>
+                ` : ''}
+
+                <div class="app-banner">
+                  <div class="app-banner-text">
+                    <strong>للحجز واختيار المواعيد</strong>
+                    حمّل تطبيق عقارات الأنبار للاطلاع على التقويم والمواعيد المتاحة وإتمام الحجز فوراً.
+                  </div>
+                </div>
+
+                <div class="venue-actions">
+                  <a class="app-open-button" href="${escapeHtml(appDeepLink)}">افتح في التطبيق</a>
+                  <a class="store-button" href="${PLAY_URL}" target="_blank" rel="noopener noreferrer">Google Play</a>
+                  <a class="store-button" href="${APPSTORE_URL}" target="_blank" rel="noopener noreferrer">App Store</a>
+                </div>
+              </section>
+            </article>
+          `;
+        } catch (err) {
+          showError('تعذر تحميل بيانات المكان', 'حدث خطأ أثناء الاتصال بالخادم. يرجى التأكد من اتصال الإنترنت ثم المحاولة ثانية.');
+        }
+      })();
+    }
+  </script>
+</body>
+</html>
